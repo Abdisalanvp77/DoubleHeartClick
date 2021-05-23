@@ -1,7 +1,25 @@
 const loveMe = document.querySelector('.loveMe');
 const times = document.querySelector('#times');
+const textEl = document.getElementById('text');
+
+const text = `Double click on the image to love it`;
+let idx = 1;
+let speed = 300 / 2;
 let clickTime = 0;
 let timesClicked = 0;
+
+setTimeout(writeText, 5000);
+
+function writeText() {
+    textEl.innerText = text.slice(0, idx);
+    idx++;
+
+    if (idx > text.length) {
+        idx = 1;
+    }
+
+    setTimeout(writeText, speed);
+}
 
 
 loveMe.addEventListener('click', (e) => {
